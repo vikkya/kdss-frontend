@@ -1,2 +1,1 @@
-# kdss-frontend
-Frontend for Kanakadhara
+## KDSS Frontend
