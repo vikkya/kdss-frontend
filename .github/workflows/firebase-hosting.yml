@@ -6,29 +6,27 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Pull your code
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      # Install Node so we can build React
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # Install dependencies
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      # Build your React app
-      - run: npm run build
+      - name: Build React app
+        run: npm run build
 
-      # Deploy to Firebase using new official action
-      - uses: firebase/actions hosting-deploy@v1
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          channelId: live
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           projectId: kdss-479615
-          entryPoint: .
-        env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
