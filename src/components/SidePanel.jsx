@@ -1,12 +1,13 @@
 
 // SidePanel Component
-const SidePanel = ({ isOpen, onClose, children }) => {
+const SidePanel = ({ isOpen, onClose, data, children }) => {
   // Utility class for the sliding effect
   // If 'isOpen' is true, translate-x-0 slides it into view.
   // If 'isOpen' is false, translate-x-full slides it completely out of view (to the right).
   const panelClasses = `
-    fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50
+    fixed top-0 right-0 h-full w-250 bg-slate-950 shadow-2xl z-50
     transform transition-transform ease-in-out duration-300
+    overflow-y-auto
     ${isOpen ? 'translate-x-0' : 'translate-x-full'}
   `;
 
@@ -38,8 +39,35 @@ const SidePanel = ({ isOpen, onClose, children }) => {
             </button>
           </div>
           {/* Panel Content */}
-          {children}
+          <h2 className="font-semibold mt-4 text-emerald-400">{data['name']}</h2>
+          <p className="mt-2 text-sm text-white">{data['description']}</p>
+          <h2 className="font-semibold mt-4 text-emerald-400">Project Highlights</h2>
+          <ul className="list-disc list-inside mt-2 ml-5 text-sm text-white">
+            {data['project_highlights'].map((highlight, index) => (
+              <li key={index}>{highlight}</li>
+            ))}
+          </ul>
+          <h2 className="font-semibold mt-4 text-emerald-400">Key Deliverables</h2>
+          <ul className="list-decimal list-inside mt-2 text-sm text-white">
+            {data['key_deliverables'].map((el, index) => (
+
+              <li key={index}>{el['name']}
+                <ul className="list-disc list-inside mt-2 ml-5 text-sm text-white">
+                  {el['details'].map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <h2 className="font-semibold mt-4 text-emerald-400">Impact</h2>
+          <ul className="list-disc list-inside mt-2 ml-5 text-sm text-white">
+            {data['impacts'].map((impact, index) => (
+              <li key={index}>{impact}</li>
+            ))}
+          </ul>
         </div>
+        {children}
       </div>
     </>
   );

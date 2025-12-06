@@ -15,7 +15,7 @@ const Contact = () => {
               </p>
               <div class="mt-5 space-y-1 text-xs text-slate-400">
                 <div>Email: info@kdss.co.in</div>
-                <div>Based in Australia • Working with clients nationwide</div>
+                <div>Based in India • Working with clients nationwide</div>
               </div>
             </div>
 

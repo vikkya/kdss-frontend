@@ -12,11 +12,12 @@ const Footer = () => {
             <a href="#" class="hover:text-emerald-300">
               Terms
             </a>
-            <a href="#" class="hover:text-emerald-300">
-              LinkedIn
+            <a href="#" class="hover:text-emerald-300" data-popover-target="popover-default">
+              Socials
             </a>
           </div>
         </div>
+        
       </footer>
   );
 }

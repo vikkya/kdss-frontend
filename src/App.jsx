@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import './App.css'
-import Welcome from './components/Welcome';
-import SidePanel from './components/SidePanel';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Hero from './components/Hero.jsx';
@@ -11,13 +7,6 @@ import Process from './components/Process.jsx';
 import Contact from './components/Contact.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
-
-  const handleOpen = () => setIsPanelOpen(true);
-  const handleClose = () => setIsPanelOpen(false);
-  const userName = "Vite User";
-
   return (
     <>
     <div class="min-h-screen bg-slate-950 text-slate-50">
@@ -30,7 +19,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-
     </div>
     </>
   )
