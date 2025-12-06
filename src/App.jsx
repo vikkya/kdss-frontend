@@ -32,34 +32,6 @@ function App() {
       <Footer />
 
     </div>
-    <Welcome name={userName} />
-    <div className="p-6 rounded-lg shadow-xl bg-gray-100 dark:bg-gray-800 transition-colors duration-500">
-          <p>
-            The background and text of this card change when you toggle the theme. This is possible because we apply the **`dark:bg-gray-800`** and **`dark:text-white`** classes.
-          </p>
-          <p className="mt-4 text-sm text-red-600 dark:text-gray-400">
-            Tailwind CSS automatically handles the context.
-          </p>
-        </div>
-    <button
-        onClick={handleOpen}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-150"
-      >
-        Learn More
-      </button>
-      <SidePanel isOpen={isPanelOpen} 
-        onClose={handleClose}>
-          <h2 className="text-xl font-semibold mb-4 border-b pb-2">Product Details</h2>
-        <p>This is the content of your sliding side panel. You can put forms, navigation, or more details here.</p>
-        <div className="mt-8">
-          <button
-            onClick={handleClose}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-          >
-            Close Panel
-          </button>
-        </div>
-      </SidePanel>
     </>
   )
 }
